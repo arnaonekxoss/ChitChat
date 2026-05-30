@@ -136,11 +136,11 @@ export default function App() {
               <button style={{ ...s.authTab, ...(page === "register" ? s.authTabActive : {}) }} onClick={() => { setPage("register"); setFormError(""); }}>REGISTER</button>
             </div>
             <div style={s.authFields}>
-              <div style={s.fieldWrap}>
-                <div style={s.fieldLabel}>EMAIL</div>
-                <input style={s.fieldInput} type="email" placeholder="user@example.com"
-                  value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
-              </div>
+            <div style={s.fieldWrap}>
+  <div style={s.fieldLabel}>USERNAME</div>
+  <input style={s.fieldInput} type="text" placeholder="enter username"
+    value={form.username} onChange={e => setForm({ ...form, username: e.target.value })} />
+            </div>
               <div style={s.fieldWrap}>
                 <div style={s.fieldLabel}>PASSWORD</div>
                 <input style={s.fieldInput} type="password" placeholder="••••••••"
@@ -166,7 +166,7 @@ export default function App() {
             <div style={s.dashGrid}>
               <div style={s.dashStat}>
                 <div style={s.dashStatLabel}>IDENTITY</div>
-                <div style={s.dashStatVal}>{user?.email}</div>
+                <div style={s.dashStatVal}>{user?.username}</div>
               </div>
               <div style={s.dashStat}>
                 <div style={s.dashStatLabel}>MEMBER SINCE</div>
@@ -223,7 +223,7 @@ export default function App() {
                   status === "chatting" ? "LINKED" : "TERMINATED"
                 } color={status === "chatting" ? "#00ff88" : status === "waiting" ? "#ffcc00" : status === "partner-left" ? "#ff3366" : "#00cfff"} />
                 <StatCard label="MESSAGES" value={String(msgCount).padStart(3, "0")} color="#00cfff" />
-                <StatCard label="AGENT" value={user?.email?.split("@")[0].toUpperCase().slice(0, 8)} color="#bf5fff" />
+                <StatCard label="AGENT" value={user?.username?.toUpperCase().slice(0, 8)} color="#bf5fff" />
                 <StatCard label="CHATS" value={String(user?.totalChats || 0).padStart(3, "0")} color="#00ff88" />
               </div>
 
@@ -301,7 +301,7 @@ export default function App() {
                           borderLeftWidth: msg.fromSelf ? 1 : 3,
                           borderRightWidth: msg.fromSelf ? 3 : 1,
                         }}>
-                          <div style={s.bubbleSender}>{msg.fromSelf ? user?.email?.split("@")[0].toUpperCase() : "STRANGER"}</div>
+                          <div style={s.bubbleSender}>{msg.fromSelf ? user?.username?.toUpperCase() : "STRANGER"}</div>
                           <div style={s.bubbleText}>{msg.text}</div>
                           <div style={s.bubbleTime}>{fmtTime(msg.time)}</div>
                         </div>

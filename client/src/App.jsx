@@ -9,7 +9,7 @@ export default function App() {
   const [page, setPage] = useState("login");
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ username: "", password: "" });
   const [formError, setFormError] = useState("");
   const [status, setStatus] = useState("idle");
   const [messages, setMessages] = useState([]);

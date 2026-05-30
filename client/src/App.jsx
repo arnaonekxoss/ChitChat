@@ -2,11 +2,11 @@ import { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 import axios from "axios";
 
-const socket = io("http://localhost:3001");
-const API = "http://localhost:3001/api/auth";
+const socket = io("https://chitchat-server-z5oo.onrender.com");
+const API = "https://chitchat-server-z5oo.onrender.com/api/auth";
 
 export default function App() {
-  const [page, setPage] = useState("login"); // login | register | dashboard | chat
+  const [page, setPage] = useState("login"); 
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [form, setForm] = useState({ email: "", password: "" });
